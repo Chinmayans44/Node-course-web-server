@@ -41,7 +41,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
-  fs.appendFile("./user-fingerprint-logging.txt",JSON.stringify(req.fingerprint)+"\n",function(err,success){
+  fs.appendFile("./user-fingerprint-logging.json",JSON.stringify(req.fingerprint)+"\n",function(err,success){
     if(err){
       console.log("Error in storing to file");
     }
@@ -59,6 +59,13 @@ app.get('/about', (req, res) => {
     pageTitle: "About page",
     copyRight: "Copy Right 2018 Funny Coders"
   })
+})
+
+app.get('/getlog', (req, res) => {
+  // let fileContent=fs.readFileSync("./user-fingerprint-logging.json");
+  // console.log(fileContent);
+  // res.render(JSON.parse(fileContent));
+  res.sendFile("app/user-fingerprint-logging.txt");
 })
 
 app.listen(port, () => {
