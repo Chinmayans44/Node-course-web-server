@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
+    "express-fingerprint": "^1.1.2",
     "hbs": "^4.0.1",
+    "nodejslogger": "^1.2.3",
+    "oe-logger": "^1.5.0",
     "request": "^2.87.0"
   }
 }
